@@ -27,7 +27,7 @@ jobs:
           language: yarn
           flags: '--info'
       - name: Software Composition Analysis Step - simple express yarn package
-        id: code
+        id: code2
         uses: SecureStackCo/actions-code@v0.1.1
         with:
           securestack_api_key: ${{ secrets.SECURESTACK_API_KEY }}
