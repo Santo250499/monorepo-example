@@ -17,7 +17,7 @@ jobs:
           securestack_app_id: ${{ secrets.SECURESTACK_APP_ID }}
           severity: critical
           flags: '-d 1 --info'
-      - name: Software Composition Analysis Step
+      - name: Software Composition Analysis Step - root yarn package
         id: code
         uses: SecureStackCo/actions-code@v0.1.1
         with:
@@ -26,6 +26,15 @@ jobs:
           severity: critical
           language: yarn
           flags: '--info'
+      - name: Software Composition Analysis Step - simple express yarn package
+        id: code
+        uses: SecureStackCo/actions-code@v0.1.1
+        with:
+          securestack_api_key: ${{ secrets.SECURESTACK_API_KEY }}
+          securestack_app_id: ${{ secrets.SECURESTACK_APP_ID }}
+          severity: critical
+          language: yarn
+          flags: '-p ./packages/simple-express-server/ --info'
       - name: Web Exposure Analysis Step
         id: exposure
         uses: SecureStackCo/actions-exposure@v0.1.3
