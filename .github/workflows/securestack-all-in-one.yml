@@ -35,6 +35,25 @@ jobs:
           severity: critical
           language: yarn
           flags: '-p ./packages/simple-express-server/ --info'
+      - name: Software Composition Analysis Step - simple react data yarn package
+        id: code3
+        uses: SecureStackCo/actions-code@v0.1.1
+        with:
+          securestack_api_key: ${{ secrets.SECURESTACK_API_KEY }}
+          securestack_app_id: ${{ secrets.SECURESTACK_APP_ID }}
+          severity: critical
+          language: yarn
+          flags: '-p ./packages/simple-react-data/ --info'
+      - name: Software Composition Analysis Step - simple shared data yarn package
+        id: code4
+        uses: SecureStackCo/actions-code@v0.1.1
+        with:
+          securestack_api_key: ${{ secrets.SECURESTACK_API_KEY }}
+          securestack_app_id: ${{ secrets.SECURESTACK_APP_ID }}
+          severity: critical
+          language: yarn
+          flags: '-p ./packages/simple-shared-data/ --info'
+      
       - name: Web Exposure Analysis Step
         id: exposure
         uses: SecureStackCo/actions-exposure@v0.1.3
