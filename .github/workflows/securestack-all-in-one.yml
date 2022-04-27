@@ -44,6 +44,8 @@ jobs:
           severity: critical
           language: yarn
           flags: '-p ./packages/simple-react-data/ --info'
+      - name: Build package-lock.json file
+        run: cd ./packages/simple-shared-data/ && npm i --package-lock-only
       - name: Software Composition Analysis Step - simple shared data yarn package
         id: code4
         uses: SecureStackCo/actions-code@v0.1.1
